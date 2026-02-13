@@ -1,9 +1,12 @@
 import React from 'react'
-
-const Switch = () => {
+import styles from "./Switch.module.css";
+const Switch = ({troca, isLight}) => {
   return (
-    <div>
-      Switch
+    <div className={isLight ? styles.light : ""}>
+      <div id={styles.Switch}>
+        <button></button>
+        <span></span>
+      </div>
     </div>
   )
 }

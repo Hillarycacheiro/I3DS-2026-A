@@ -3,6 +3,7 @@ import Link from './components/Link/Link';
 import Perfil from './components/Perfil/Perfil';
 import Rodape from './components/Rodape/Rodape';
 import SocialLink from './components/SocialLink/SocialLink';
+import Switch from './components/Switch/Switch';
 
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
     <div id='App'>
       <Perfil fotoPerfil={"https://placehold.co/100"} >Hillary Cacheiro</Perfil>
 
-      <div className="switch">botão switch</div>
+      <Switch />
 
     <div id="Link">
       <ul>
