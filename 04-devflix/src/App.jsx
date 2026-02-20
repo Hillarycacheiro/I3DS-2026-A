@@ -24,7 +24,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchMovies("One Piece");
+    searchMovies(""); /* termo para pesquisa ao carregar o site */
   }, []);
 
   return (
@@ -47,7 +47,7 @@ const App = () => {
           ))}
         </div>
       ) : (
-        <h2>😢 Filme não encontrado 😢</h2>
+        <h2 className="empty">😢 Filme não encontrado 😢</h2>
       )}
 
       <Rodape link={"https://github.com/hillarycacheiro"}>CacheiroHi</Rodape>
