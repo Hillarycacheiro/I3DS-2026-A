@@ -25,7 +25,9 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchMovies(""); /* termo para pesquisa ao carregar o site */
+    (async () => {
+      await searchMovies("Hulk"); /* termo para pesquisa ao carregar o site */
+    })();
   }, []);
 
   return (
