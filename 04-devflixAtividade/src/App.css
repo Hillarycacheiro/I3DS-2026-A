@@ -1,6 +1,7 @@
 :root {
   /* :root -> variáveis de css no tema original projetado */
   --font-raleway: "Raleway", sans-serif;
+  --search-magnifier-size: 2em;
 }
 
 /* Light theme */
@@ -151,6 +152,18 @@ body {
       height: 35px;
       cursor: pointer;
     }
+  }
+
+  .search-magnifier {
+    width: var(--search-magnifier-size);
+    height: var(--search-magnifier-size);
+    border: 1px solid var(--text-placeholder);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    padding: 0.2rem 0.5rem;
+    outline: none;
+    cursor: pointer;
   }
 }
 
