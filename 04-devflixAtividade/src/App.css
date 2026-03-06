@@ -19,8 +19,8 @@
 .dark {
   --bg-primary: #202020;
   --bg-secondary: #343739;
-  --text-primary: #f5f5f5;
-  --text-secondary: #f0f0f0;
+  --text-primary: #000000;
+  --text-secondary: #000000;
   --text-placeholder: #a1a1a1;
   --accent-color: #8f05ff;
   --shadow-color: rgba(0, 0, 0, 0.4);
@@ -54,7 +54,7 @@ body {
   position: fixed;
   top: 2rem;
   right: 2rem;
-  background: var(--accent-color);
+  background: #ffffff;
   border: none;
   border-radius: 50%;
   width: 45px;
@@ -76,6 +76,36 @@ body {
 
 .theme-toggle:active {
   transform: scale(0.95);
+}
+
+.language-picker {
+  position: fixed;
+  top: 2rem;
+  right: 5.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 999px;
+  padding: 0.4rem 0.7rem;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+
+.language-picker span {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.language-picker select {
+  border: 1px solid var(--text-placeholder);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #000000;
+  padding: 0.2rem 0.5rem;
+  outline: none;
+  cursor: pointer;
 }
 
 #Logo {
@@ -144,6 +174,12 @@ body {
 @media screen and (max-width: 600px) {
   #App {
     padding: 4rem 2rem;
+  }
+
+  .language-picker {
+    top: 1.3rem;
+    right: 4.6rem;
+    padding: 0.35rem 0.55rem;
   }
 
   .search {
