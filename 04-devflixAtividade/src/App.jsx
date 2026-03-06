@@ -10,10 +10,16 @@ import MovieCard from "./components/MovieCard/MovieCard";
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
+  const [darkMode, setDarkMode] = useState(true);
 
   //Utilizando uma CHAVE de API do arquivo .env
   const apiKey = import.meta.env.VITE_OMDB_API_KEY;
   const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
+
+  // Função para alternar o tema
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
 
   //Criando a conexão com a API e trazendo informações
   const searchMovies = async (title) => {
@@ -31,7 +37,11 @@ const App = () => {
   }, []);
 
   return (
-    <div id="App">
+    <div id="App" className={darkMode ? "dark" : "light"}>
+      <button className="theme-toggle" onClick={toggleTheme}>
+        {darkMode ? "☀️" : "🌙"}
+      </button>
+
       <img
         id="Logo"
         src={logo}
