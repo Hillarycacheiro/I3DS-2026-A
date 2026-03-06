@@ -3,11 +3,34 @@ import styles from "./MovieDescription.module.css";
 
 const MovieDescription = (props) => {
   const [movieDesc, setMovieDesc] = useState([]);
+  const [translatedPlot, setTranslatedPlot] = useState("");
+
+  // Função para traduzir usando Google Translate via proxy gratuito
+  const translateText = async (text) => {
+    try {
+      // Usa o endpoint público do Google Translate
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=pt&dt=t&q=${encodeURIComponent(text)}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      // O Google retorna um array complexo, precisamos extrair o texto traduzido
+      return data[0].map((item) => item[0]).join("");
+    } catch (error) {
+      console.error("Erro ao traduzir:", error);
+      return text;
+    }
+  };
 
   useEffect(() => {
     fetch(`${props.apiUrl}&i=${props.movieID}`)
       .then((response) => response.json())
-      .then((data) => setMovieDesc(data))
+      .then(async (data) => {
+        setMovieDesc(data);
+        // Traduzir a sinopse se existir
+        if (data.Plot && data.Plot !== "N/A") {
+          const translated = await translateText(data.Plot);
+          setTranslatedPlot(translated);
+        }
+      })
       .catch((error) => console.error(error));
   }, []);
 
@@ -46,7 +69,10 @@ const MovieDescription = (props) => {
           </div>
         </div>
         <div className={styles.desc}>
-          <p>Sinopse: {movieDesc.Plot}</p>
+          <p>
+            Sinopse:{" "}
+            {translatedPlot || movieDesc.Plot || "Carregando tradução..."}
+          </p>
         </div>
       </div>
     </div>

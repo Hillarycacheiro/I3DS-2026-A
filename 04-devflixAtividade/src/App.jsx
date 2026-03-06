@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-import logo from "./assets/devflix.png";
-import lupa from "./assets/search.svg";
+import logo from "./assets/logo.png";
+import lupa from "./assets/lupaa.svg";
 
 import Rodape from "./components/Rodape/Rodape";
 import MovieCard from "./components/MovieCard/MovieCard";
@@ -39,15 +39,17 @@ const App = () => {
       />
 
       <div className="search">
-        <input 
-        onKeyDown={(e) => e.key === "Enter" && searchMovies(search)}
-        onChange={(e) => setSearch(e.target.value)}
-        type="text" 
-        placeholder="Pesquise por filmes" 
+        <input
+          onKeyDown={(e) => e.key === "Enter" && searchMovies(search)}
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Pesquise por filmes"
         />
-        <img onClick={() => searchMovies(search)}
-        src={lupa} 
-        alt="Botão de ação para pesquisa!" />
+        <img
+          onClick={() => searchMovies(search)}
+          src={lupa}
+          alt="Botão de ação para pesquisa!"
+        />
       </div>
 
       {movies?.length > 0 ? (
